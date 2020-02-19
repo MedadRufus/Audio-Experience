@@ -106,11 +106,12 @@ ASRuBCQARCV7ACp6BCoAQyUAASRtBCQAQyp6ASV7AyoARCUAASV6ACRsBCQAQiZ/ASUAAyYAFyZ8
 BCYADSZ/BCYAGCZ5Ajl6ACRoAiYAAiQAgQs5AAD/LwA=
 '''
 music_file = "FishPolka.mid"
+music_file = "converted-sBarLa9UsFflfu5z3QJ1zr0tsUTVtC.gp5.mid"
 # convert back to a binary midi and save to a file in the working directory
-fish = base64.b64decode(mid64)
-fout = open(music_file, "wb")
-fout.write(fish)
-fout.close()
+#fish = base64.b64decode(mid64)
+#fout = open(music_file, "wb")
+#fout.write(fish)
+#fout.close()
 freq = 44100  # audio CD quality
 bitsize = -16  # unsigned 16 bit
 channels = 2  # 1 is mono, 2 is stereo
