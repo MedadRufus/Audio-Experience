@@ -23,10 +23,24 @@
 */
 
 long randPin;
-int pin_delay = 250;
 
 int finger[5] = {1,2,3,4,5};
-//int pin_number[5] = {4,6,3,2,,};
+
+
+// list of finger numbers to play in a sequence
+int song[14] = {1,1,2,1,4,3,1,1,2,1,5,4,1,1};
+
+
+
+//int pin_number[5] = {2,3,4,5,6};
+//int finger_number[5] = {5,2,3,4,1};
+
+
+//int finger_number[5] = {5,2,3,4,1};
+
+int pin_number[5] = {6,3,4,5,2};
+
+int pin_delay = 500;
 
 
 // the setup function runs once when you press reset or power the board
@@ -54,26 +68,40 @@ void setup() {
 
 
 
-
-// the loop function runs over and over again forever
-void loop() {
-  
-  // print a random number pin from 10 to 19
-  //randPin = random(2, 7);
-  
-  randPin = 5;
-
-  Serial.print("We are pinging pin: ");
-  Serial.println(randPin);
-
-
+void beep_pin(int pin_number){
   
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(randPin, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(pin_number, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(pin_delay);                       // wait for a second
   
   
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  digitalWrite(randPin, LOW);    // turn the LED off by making the voltage LOW
-  delay(pin_delay);                       // wait for a second
+  digitalWrite(pin_number, LOW);    // turn the LED off by making the voltage LOW
+  delay(pin_delay);                       // wait for a second 
+  
+  }
+
+// the loop function runs over and over again forever
+void loop() {
+  
+ 
+   int i;
+   for (i=0; i<sizeof(song); i++)
+   {
+
+       int pin_to_beep = pin_number[song[i]-1];
+
+       Serial.print("We are at note number:");
+       Serial.println(i+1);
+       Serial.print("Buzzing pin");
+       Serial.println( pin_to_beep);
+       Serial.print("We are playing finger");
+       Serial.println(song[i]);
+       Serial.println("");
+
+       beep_pin(pin_to_beep);
+
+   }
+  
+
 }
