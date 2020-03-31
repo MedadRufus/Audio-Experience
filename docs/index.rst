@@ -10,6 +10,9 @@ Welcome to Audio Experience: PlayByEar's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   intro
+   MaxMSP_pitch_detection
+
 
 
 Indices and tables
